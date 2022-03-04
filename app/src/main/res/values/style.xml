@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NavigationStyle" >
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="colorPrimary">@color/navy_blue</item>
+        <item name="colorControlHighlight">?colorPrimary</item>
+    </style>
+</resources>

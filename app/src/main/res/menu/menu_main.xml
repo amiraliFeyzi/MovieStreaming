@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/homeFragment" android:icon="@drawable/ic_baseline_home_24" android:title="@string/home" />
+
+    <item android:id="@+id/searchFragment"  android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search" />
+
+    <item android:id="@+id/buyAccountFragment"  android:icon="@drawable/ic_baseline_payment_24"
+        android:title="@string/buy_account" />
+
+    <item android:id="@+id/genreFragment"  android:icon="@drawable/ic_baseline_apps_24"
+        android:title="@string/genre" />
+
+    <item android:id="@+id/favoriteFragment"  android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/favorite" />
+
+    <item android:id="@+id/profileFragment"  android:icon="@drawable/ic_baseline_person_pin_24"
+        android:title="@string/profile" />
+</menu>

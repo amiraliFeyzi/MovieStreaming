@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_buy_account.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_favorite.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_genre.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/view_toolbar.xml" value="0.22" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

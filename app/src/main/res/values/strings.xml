@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MovieStreaming</string>
+    <string name="genre">Genre</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="buy_account">Buy Account</string>
+    <string name="profile">Profile</string>
 </resources>
