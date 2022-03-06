@@ -8,6 +8,22 @@
     tools:context=".view.home.MainActivity">
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:elevation="10dp"
+        >
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_baseline_menu_24"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"/>
+
+
+    </FrameLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -27,4 +43,6 @@
         android:background="@color/white">
 
     </com.google.android.material.navigation.NavigationView>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

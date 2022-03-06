@@ -21,8 +21,8 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setNavigationView()
         setUpNavigationViewWithNavComponent()
-
     }
 
     //handle navigationView With NavComponent
@@ -31,6 +31,29 @@ class MainActivity : BaseActivity() {
         val navController:NavController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment , R.id.searchFragment , R.id.buyAccountFragment , R.id.genreFragment , R.id.favoriteFragment , R.id.favoriteFragment) , binding.drawerLayout)
         binding.navigationView.setupWithNavController(navController)
+    }
+
+    private fun setNavigationView(){
+        binding.drawerLayout.bringToFront()
+        binding.drawerLayout.requestLayout()
+        binding.navigationView.setCheckedItem(R.id.homeFragment)
+
+        binding.ivMenu.setOnClickListener {
+            if (binding.drawerLayout.isDrawerVisible(GravityCompat.END)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.END)
+            } else {
+                binding.drawerLayout.openDrawer(GravityCompat.START)
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+
+        } else {
+            super.onBackPressed()
+        }
     }
 
 
