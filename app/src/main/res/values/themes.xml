@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/navy_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Surface  color. -->
+        <item name="colorSecondary">@color/yellow</item>
         <item name="colorSurface">@color/dark_blue</item>
         <item name="colorOnSecondary">@color/white</item>
         <!--Material type attributes-->

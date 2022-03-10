@@ -1,14 +1,11 @@
 package com.example.moviestreaming.view.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.moviestreaming.R
 import com.example.moviestreaming.base.BaseFragment
 import com.example.moviestreaming.databinding.FragmentProfileBinding
-import com.example.moviestreaming.databinding.FragmentSearchBinding
 
 
 class ProfileFragment : BaseFragment() {

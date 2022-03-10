@@ -6,4 +6,11 @@
     <string name="favorite">Favorite</string>
     <string name="buy_account">Buy Account</string>
     <string name="profile">Profile</string>
+    <string name="top_movie_imdb">Top Movie Imdb</string>
+    <string name="more">  More ></string>
+    <string name="new_movie">New Movie</string>
+    <string name="series">Series</string>
+    <string name="popular_movie">Popular Movie</string>
+    <string name="animation">Animation</string>
+
 </resources>

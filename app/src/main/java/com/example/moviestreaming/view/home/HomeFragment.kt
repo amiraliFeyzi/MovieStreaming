@@ -1,26 +1,122 @@
 package com.example.moviestreaming.view.home
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.moviestreaming.R
+import androidx.fragment.app.viewModels
 import com.example.moviestreaming.base.BaseFragment
 import com.example.moviestreaming.databinding.FragmentHomeBinding
-import com.example.moviestreaming.databinding.FragmentProfileBinding
-import com.example.moviestreaming.databinding.FragmentSearchBinding
+import com.example.moviestreaming.model.dataclass.Movie
+import com.example.moviestreaming.model.dataclass.Slider
+import com.example.moviestreaming.utils.setHorizontalRecyclerView
+import com.example.moviestreaming.utils.variables.POPULAR_MOVIE_VIEW_TYPE
+import com.example.moviestreaming.view.home.adapter.MovieAdapter
+import com.example.moviestreaming.view.home.adapter.SliderAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment() {
     private var _binding : FragmentHomeBinding?=null
     private val binding get() = _binding!!
 
+    private val viewModel:HomeViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater , container , false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeData()
+    }
+
+
+    private fun observeData(){
+        getData()
+
+        viewModel.sliderLiveData.observe(viewLifecycleOwner){
+            setUpSlider(it)
+        }
+
+        viewModel.topMovieImdbLiveData.observe(viewLifecycleOwner){
+            setTopMovieImdbList(it)
+        }
+
+        viewModel.newMovieLiveData.observe(viewLifecycleOwner){
+            setNewMovieList(it)
+        }
+
+        viewModel.seriesLiveData.observe(viewLifecycleOwner){
+            setSeriesList(it)
+        }
+
+        viewModel.popularMovieLiveData.observe(viewLifecycleOwner){
+            setPopularMoveList(it)
+        }
+
+        viewModel.animationLiveData.observe(viewLifecycleOwner){
+            setAnimationList(it)
+        }
+
+    }
+
+    //call method get data from viewModel
+    private fun getData(){
+        viewModel.getSlider()
+        viewModel.getTopMovieImdbList()
+        viewModel.getNewMovieList()
+        viewModel.getSeriesList()
+        viewModel.getPopularMovieList()
+        viewModel.getAnimationList()
+    }
+
+
+    private fun setUpSlider(sliders:List<Slider>){
+        val sliderAdapter  = SliderAdapter(imageLoading)
+        sliderAdapter.setData(sliders)
+        binding.slider.adapter = sliderAdapter
+        binding.sliderIndicator.setViewPager2(binding.slider)
+    }
+
+    private fun setTopMovieImdbList(topMovieImdbList:List<Movie>){
+        val movieAdapter = MovieAdapter(imageLoading)
+        binding.rvTopMovieImdb.setHorizontalRecyclerView(requireContext() , binding.rvTopMovieImdb)
+        movieAdapter.setData(topMovieImdbList)
+        binding.rvTopMovieImdb.adapter = movieAdapter
+    }
+
+    private fun setNewMovieList(newMovieList:List<Movie>){
+        val movieAdapter = MovieAdapter(imageLoading)
+        binding.rvNewMovie.setHorizontalRecyclerView(requireContext() , binding.rvNewMovie)
+        movieAdapter.setData(newMovieList)
+        binding.rvNewMovie.adapter = movieAdapter
+    }
+
+    private fun setSeriesList(seriesList:List<Movie>){
+        val movieAdapter = MovieAdapter(imageLoading)
+        binding.rvSeries.setHorizontalRecyclerView(requireContext() , binding.rvSeries)
+        movieAdapter.setData(seriesList)
+        binding.rvSeries.adapter = movieAdapter
+    }
+
+    private fun setPopularMoveList(popularMovieList:List<Movie>){
+        val movieAdapter = MovieAdapter(imageLoading)
+        movieAdapter.setViewType(POPULAR_MOVIE_VIEW_TYPE)
+        binding.rvPopularMovie.setHorizontalRecyclerView(requireContext() , binding.rvPopularMovie)
+        movieAdapter.setData(popularMovieList)
+        binding.rvPopularMovie.adapter = movieAdapter
+    }
+
+    private fun setAnimationList(animationList:List<Movie>){
+        val movieAdapter = MovieAdapter(imageLoading)
+        binding.rvAnimation.setHorizontalRecyclerView(requireContext() , binding.rvAnimation)
+        movieAdapter.setData(animationList)
+        binding.rvAnimation.adapter = movieAdapter
     }
 
     override fun onDestroy() {

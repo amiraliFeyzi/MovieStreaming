@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.home.HomeFragment">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp">
@@ -20,14 +23,223 @@
                     android:textAppearance="?textAppearanceHeadline6"
                     android:layout_gravity="center" />
 
+            </FrameLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:layout_marginTop="6dp"
+                android:id="@+id/slider"
+                />
+
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/sliderIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                app:dotsColor="?colorSecondary"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="5dp"
+                app:dotsSpacing="3dp"
+                app:dotsWidthFactor="4"
+                app:progressMode="false"
+                app:selectedDotColor="?colorSecondary"
+                android:layout_marginTop="8dp"
+                 />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/top_movie_imdb"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="start|center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/moreTopMovieImdb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/more"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    />
 
             </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopMovieImdb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/new_movie"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="start|center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/moreNewMovie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/more"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNewMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/series"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="start|center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/moreSeries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/more"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSeries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/popular_movie"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="start|center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/morePopularMovie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/more"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopularMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/animation"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="start|center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/moreAnimation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:text="@string/more"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                />
+
+
+
 
         </LinearLayout>
 
 
     </androidx.core.widget.NestedScrollView>
-
-
 
 </FrameLayout>

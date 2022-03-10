@@ -40,6 +40,8 @@
 
     <style name="TextAppearance.MyTheme.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <!--Your custom type style here-->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="TextAppearance.MyTheme.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
@@ -65,6 +67,9 @@
 
     <style name="TextAppearance.MyTheme.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <!--Your custom type style here-->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+
     </style>
 
     <style name="TextAppearance.MyTheme.Button" parent="TextAppearance.MaterialComponents.Button">
