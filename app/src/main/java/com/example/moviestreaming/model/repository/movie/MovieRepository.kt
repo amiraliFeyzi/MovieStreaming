@@ -9,5 +9,7 @@ interface MovieRepository {
 
     suspend fun getMovieList(categoryName:String):Flow<List<Movie>>
 
+    suspend fun getAllMovieList(categoryName:String):Flow<List<Movie>>
+
 
 }

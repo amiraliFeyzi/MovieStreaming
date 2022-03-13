@@ -21,4 +21,10 @@ class MovieRepositoryImpl (private val movieRemoteDataSource: MovieDataSource):M
             emit(movieRemoteDataSource.getMovieList(categoryName))
         }
     }
+
+    override suspend fun getAllMovieList(categoryName: String): Flow<List<Movie>> {
+        return flow {
+            emit(movieRemoteDataSource.getAllMovieList(categoryName))
+        }
+    }
 }

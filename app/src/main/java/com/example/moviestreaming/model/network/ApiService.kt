@@ -11,4 +11,7 @@ interface ApiService {
 
     @GET("getInformationHomePage.php")
     suspend fun getMovieListHome(@Query("category_name")categoryName:String):List<Movie>
+
+    @GET("getAllInformationHomePage.php")
+    suspend fun getAllMovieList(@Query("category_name")categoryName:String):List<Movie>
 }

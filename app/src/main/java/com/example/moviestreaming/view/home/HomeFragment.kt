@@ -9,7 +9,7 @@ import com.example.moviestreaming.databinding.FragmentHomeBinding
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.model.dataclass.Slider
 import com.example.moviestreaming.utils.setHorizontalRecyclerView
-import com.example.moviestreaming.utils.variables.POPULAR_MOVIE_VIEW_TYPE
+import com.example.moviestreaming.utils.variables.*
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
 import com.example.moviestreaming.view.home.adapter.SliderAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +33,7 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeData()
+        moreTvOnclick()
     }
 
 
@@ -119,10 +120,20 @@ class HomeFragment : BaseFragment() {
         binding.rvAnimation.adapter = movieAdapter
     }
 
+    private fun moreTvOnclick(){
+        binding.moreTopMovieImdb.setOnClickListener(TvMoreClickListener(CATEGORY_NAME_TOP_MOVIE_IMDB , requireContext()))
+        binding.moreNewMovie.setOnClickListener(TvMoreClickListener(CATEGORY_NAME_MOVIE_NEW , requireContext()))
+        binding.moreSeries.setOnClickListener(TvMoreClickListener(CATEGORY_NAME_SERIES , requireContext()))
+        binding.morePopularMovie.setOnClickListener(TvMoreClickListener(CATEGORY_NAME_POPULAR_MOVIE , requireContext()))
+        binding.moreAnimation.setOnClickListener(TvMoreClickListener(CATEGORY_NAME_ANIMATION, requireContext()))
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
+
 
 
 }

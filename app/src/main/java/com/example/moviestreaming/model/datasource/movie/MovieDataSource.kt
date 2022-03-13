@@ -7,4 +7,7 @@ interface MovieDataSource {
     suspend fun getSliderMovie():List<Slider>
 
     suspend fun getMovieList(categoryName:String):List<Movie>
+
+    suspend fun getAllMovieList(categoryName:String):List<Movie>
+
 }

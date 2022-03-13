@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.example.moviestreaming.customview.imageview.MovieImageView
+        android:id="@+id/ivMovieList"
+        android:layout_width="95dp"
+        android:layout_height="140dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="12dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView2" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="12dp"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="-20dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tvRateImdbMovieList"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvNameMovieList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:layout_marginEnd="48dp"
+                    android:maxHeight="50dp"
+                    tools:text="The Lord of the Rings: The Fellowship of the Ring" />
+
+                <TextView
+                    android:id="@+id/tvDirectorMovieList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:layout_marginTop="1dp"
+                    tools:text="Director:AmirAli" />
+
+
+                <TextView
+                    android:id="@+id/tvPublishedMovieList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:layout_marginTop="8dp"
+
+                    tools:text="Published:12Nov 2012" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_access_time_24"
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/ivTime"/>
+
+                    <TextView
+                        android:id="@+id/tvTimeMovieList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_toRightOf="@id/ivTime"
+                        android:textAppearance="?textAppearanceHeadline5"
+                        tools:text="2h 23min" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRateImdbMovieList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_rate_imdb"
+                android:padding="4dp"
+                android:textAppearance="?textAppearanceHeadline5"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Imdb: 9.8/10" />
+
+
+            <TextView
+                android:id="@+id/tvRankMoveList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tv_rank"
+                android:padding="4dp"
+                android:textAppearance="?textAppearanceHeadline5"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvRateImdbMovieList"
+                tools:text="rank:" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRankMoveList"
+                app:layout_constraintStart_toEndOf="@+id/tvRankMoveList"
+                android:layout_marginStart="12dp"
+                app:layout_constraintTop_toTopOf="@+id/tvRankMoveList" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
