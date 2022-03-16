@@ -13,7 +13,7 @@ import com.example.moviestreaming.utils.variables.CATEGORY_NAME_SERIES
 import com.example.moviestreaming.utils.variables.MOVIE_VIEW_TYPE
 import com.example.moviestreaming.utils.variables.POPULAR_MOVIE_VIEW_TYPE
 
-class MovieAdapter (private val imageLoading: ImageLoading):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MovieAdapter (private val imageLoading: ImageLoading , private val onMovieClickListener: OnMovieClickListener):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val movieList = ArrayList<Movie>()
 
@@ -42,6 +42,10 @@ class MovieAdapter (private val imageLoading: ImageLoading):RecyclerView.Adapter
             binding.nameMovieTv.text=movie.name
             binding.timeMoveTv.text = movie.time
             imageLoading.load(binding.ivMovie , movie.link_img)
+
+            binding.root.setOnClickListener {
+                onMovieClickListener.onClick(movie)
+            }
         }
     }
 
@@ -50,6 +54,10 @@ class MovieAdapter (private val imageLoading: ImageLoading):RecyclerView.Adapter
             binding.nameMovieTv.text=movie.name
             binding.timeMoveTv.text = movie.time
             imageLoading.load(binding.ivMovie , movie.link_img)
+
+            binding.root.setOnClickListener {
+                onMovieClickListener.onClick(movie)
+            }
 
         }
     }
@@ -80,5 +88,9 @@ class MovieAdapter (private val imageLoading: ImageLoading):RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int  = movieList.size
+
+    interface OnMovieClickListener{
+        fun onClick(movie: Movie)
+    }
 
 }

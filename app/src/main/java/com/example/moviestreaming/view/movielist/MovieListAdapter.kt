@@ -4,15 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.RoundedCornersTransformation
 import com.example.moviestreaming.R
+import com.example.moviestreaming.cumponents.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ItemMovieListBinding
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.utils.variables.CATEGORY_NAME_SERIES
 import com.example.moviestreaming.utils.variables.CATEGORY_NAME_TOP_MOVIE_IMDB
+import com.example.moviestreaming.view.home.adapter.MovieAdapter
 
-class MovieListAdapter:RecyclerView.Adapter<MovieListAdapter.MovieListViewHolder>() {
+class MovieListAdapter (private val imageLoading: ImageLoading):RecyclerView.Adapter<MovieListAdapter.MovieListViewHolder>() {
     private val movieList = ArrayList<Movie>()
 
     fun setData(movieList:List<Movie>){
@@ -20,6 +20,8 @@ class MovieListAdapter:RecyclerView.Adapter<MovieListAdapter.MovieListViewHolder
         this.movieList.addAll(movieList)
         notifyDataSetChanged()
     }
+
+     var onMovieClickListener:MovieAdapter.OnMovieClickListener? = null
 
     inner class MovieListViewHolder(val binding:ItemMovieListBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(movie:Movie){
@@ -32,14 +34,17 @@ class MovieListAdapter:RecyclerView.Adapter<MovieListAdapter.MovieListViewHolder
                 binding.ivTime.setImageResource(R.drawable.ic_baseline_folder_special_24)
             }
 
+            imageLoading.loadWithCorners(binding.ivMovieList , movie.link_img , 20f)
             binding.tvNameMovieList.text = movie.name
             binding.tvDirectorMovieList.text = "Director: ${movie.director}"
             binding.tvPublishedMovieList.text = "Published: ${movie.published}"
             binding.tvRateImdbMovieList.text = "Imdb: ${movie.rate_imdb}"
             binding.tvTimeMovieList.text = movie.time
 
-            binding.ivMovieList.load(movie.link_img){
-                transformations(RoundedCornersTransformation(20f))
+
+
+            binding.root.setOnClickListener {
+                onMovieClickListener?.onClick(movie)
             }
 
 
@@ -55,4 +60,5 @@ class MovieListAdapter:RecyclerView.Adapter<MovieListAdapter.MovieListViewHolder
     }
 
     override fun getItemCount(): Int =movieList.size
+
 }

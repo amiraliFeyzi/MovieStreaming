@@ -1,0 +1,128 @@
+package com.example.moviestreaming.view.moviedetail
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.viewModels
+import com.example.moviestreaming.R
+import com.example.moviestreaming.base.BaseActivity
+import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.databinding.ActivityMovieDetailBinding
+import com.example.moviestreaming.model.dataclass.Cast
+import com.example.moviestreaming.model.dataclass.DetailMovie
+import com.example.moviestreaming.model.dataclass.Movie
+import com.example.moviestreaming.model.dataclass.Season
+import com.example.moviestreaming.utils.setHorizontalRecyclerView
+import com.example.moviestreaming.utils.variables.CATEGORY_NAME_SERIES
+import com.example.moviestreaming.utils.variables.EXTRA_KEY_DATA
+import com.example.moviestreaming.view.home.adapter.MovieAdapter
+import com.example.moviestreaming.view.moviedetail.adapter.CastMovieAdapter
+import com.example.moviestreaming.view.moviedetail.adapter.SeasonMovieAdapter
+import com.example.moviestreaming.view.moviedetail.adapter.SimilarAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
+
+@AndroidEntryPoint
+class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener {
+    private lateinit var binding:ActivityMovieDetailBinding
+
+    private val viewModel:MovieDetailViewModel by viewModels()
+
+    @Inject
+    lateinit var imageLoading: ImageLoading
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMovieDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        observeData()
+    }
+
+    private fun observeData(){
+        getData()
+        viewModel.movieLiveData.observe(this){
+            setUpUiMovie(it)
+
+        }
+
+        viewModel.detailMovieLiveData.observe(this){
+            it.forEach { detailMovie->
+                setUpUiDetailMovie(detailMovie)
+            }
+        }
+
+        viewModel.seasonMovieLiveData.observe(this){
+            setSeasonMovie(it)
+        }
+
+        viewModel.castMovieLiveData.observe(this){
+            setCastMovie(it)
+        }
+
+        viewModel.similarMovieLiveData.observe(this){
+            setSimilarMovie(it)
+        }
+
+    }
+
+    //call method getData from viewModel
+    private fun getData(){
+        viewModel.getDetailMovie()
+        viewModel.getSeasonMovie()
+        viewModel.getCastMovie()
+        viewModel.getSimilarMovie()
+    }
+
+    private fun setUpUiMovie(movie:Movie){
+        binding.tvNameMovieDetail.text = movie.name
+        binding.tvDirectorDetailMovie.text = "Director: ${movie.director}"
+        binding.tvPublishedDetailMovie.text = "Published: ${movie.published}"
+        binding.tvTimeMovieDetail.text = movie.time
+
+        if (movie.category_name == CATEGORY_NAME_SERIES){
+            binding.ivTimeDetail.setImageResource(R.drawable.ic_baseline_folder_special_24)
+            binding.tvTimeMovieDetail.text = movie.time
+        }
+
+        binding.tvRateImdbMovieDetail.text = "Imdb: ${movie.rate_imdb}"
+
+    }
+
+    private fun setUpUiDetailMovie(detailMovie: DetailMovie){
+        imageLoading.load(binding.ivMovieDetail , detailMovie.link_img)
+        binding.tvDescriptionDetailMovie.text = detailMovie.description
+    }
+
+    private fun setSeasonMovie(seasons:List<Season>){
+        val seasonMovieAdapter = SeasonMovieAdapter(imageLoading)
+        seasonMovieAdapter.setData(seasons)
+        binding.rvSeasonMovieDetail.setHorizontalRecyclerView(this , binding.rvSeasonMovieDetail)
+        binding.rvSeasonMovieDetail.adapter = seasonMovieAdapter
+    }
+
+    private fun setCastMovie(casts:List<Cast>){
+        val castMovieAdapter = CastMovieAdapter(imageLoading)
+        castMovieAdapter.setData(casts)
+        binding.rvCastDetail.setHorizontalRecyclerView(this , binding.rvCastDetail)
+        binding.rvCastDetail.adapter = castMovieAdapter
+    }
+
+    private fun setSimilarMovie(movies:List<Movie>){
+        val similarAdapter = SimilarAdapter(imageLoading , this , getRandom())
+        similarAdapter.setData(movies)
+        binding.rvSimilarMovie.setHorizontalRecyclerView(this , binding.rvSimilarMovie)
+        binding.rvSimilarMovie.adapter = similarAdapter
+    }
+
+    override fun onClick(movie: Movie) {
+        startActivity(Intent(this , MovieDetailActivity::class.java).apply {
+            putExtra(EXTRA_KEY_DATA , movie)
+        })
+    }
+
+    fun getRandom():Int{
+        return (1..7).random().toInt()
+    }
+
+
+}

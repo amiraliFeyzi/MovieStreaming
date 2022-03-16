@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_detail_movie.xml" value="0.1365" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_iv_slider.xml" value="0.16" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_rate_imdb.xml" value="0.134" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_tv_rank.xml" value="0.125" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_movie_detail.xml" value="0.18" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_movie_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_buy_account.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_favorite.xml" value="0.20416666666666666" />
@@ -15,9 +17,11 @@
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_movie_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_cast.xml" value="0.33" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_movie.xml" value="0.25" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_movie_list.xml" value="0.22" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_popular_movie.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_season.xml" value="0.22" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_slider.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/view_toolbar.xml" value="0.22" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/menu/menu_main.xml" value="0.1" />

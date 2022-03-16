@@ -1,5 +1,9 @@
 package com.example.moviestreaming.model.dataclass
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Movie(
     val category_name: String,
     val director: String,
@@ -11,4 +15,4 @@ data class Movie(
     val rank: String,
     val rate_imdb: String,
     val time: String
-)
+):Parcelable
