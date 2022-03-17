@@ -15,5 +15,6 @@
     <string name="description">Description:</string>
     <string name="cast">Cast:</string>
     <string name="similarMovie">Similar Movie:</string>
+    <string name="episodes">Episodes</string>
 
 </resources>

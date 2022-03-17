@@ -7,7 +7,7 @@ import com.example.moviestreaming.cumponents.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ItemSeasonBinding
 import com.example.moviestreaming.model.dataclass.Season
 
-class SeasonMovieAdapter(private val imageLoading: ImageLoading) :RecyclerView.Adapter<SeasonMovieAdapter.SeasonViewHolder>() {
+class SeasonMovieAdapter(private val imageLoading: ImageLoading , private val onSeasonClickListener: OnSeasonClickListener) :RecyclerView.Adapter<SeasonMovieAdapter.SeasonViewHolder>() {
     private val seasonList= ArrayList<Season>()
     fun setData(seasons:List<Season>){
         this.seasonList.clear()
@@ -21,6 +21,10 @@ class SeasonMovieAdapter(private val imageLoading: ImageLoading) :RecyclerView.A
             binding.tvCountEpisodeSeasonMovie.text = "Episodes: ${season.count_episodes}"
 
             imageLoading.load(binding.ivMovieSeason , season.link_img_season)
+
+            binding.root.setOnClickListener {
+                onSeasonClickListener.onSeasonClick(season)
+            }
         }
     }
 
@@ -33,4 +37,8 @@ class SeasonMovieAdapter(private val imageLoading: ImageLoading) :RecyclerView.A
     }
 
     override fun getItemCount(): Int  = seasonList.size
+
+    interface OnSeasonClickListener{
+        fun onSeasonClick(season: Season)
+    }
 }

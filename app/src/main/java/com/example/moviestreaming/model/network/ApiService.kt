@@ -22,4 +22,7 @@ interface ApiService {
 
     @GET("getCast.php")
     suspend fun getCastMovie(@Query("id_item")idMovie: String):List<Cast>
+
+    @GET("getEpisodes.php")
+    suspend fun getEpisodeMovie(@Query("id_season")idSeason:String):List<Episode>
 }

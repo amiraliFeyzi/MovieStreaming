@@ -14,16 +14,18 @@ import com.example.moviestreaming.model.dataclass.Season
 import com.example.moviestreaming.utils.setHorizontalRecyclerView
 import com.example.moviestreaming.utils.variables.CATEGORY_NAME_SERIES
 import com.example.moviestreaming.utils.variables.EXTRA_KEY_DATA
+import com.example.moviestreaming.view.episode.EpisodeActivity
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
 import com.example.moviestreaming.view.moviedetail.adapter.CastMovieAdapter
 import com.example.moviestreaming.view.moviedetail.adapter.SeasonMovieAdapter
 import com.example.moviestreaming.view.moviedetail.adapter.SimilarAdapter
+import com.example.moviestreaming.view.player.PlayMovieActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener {
+class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener , SeasonMovieAdapter.OnSeasonClickListener {
     private lateinit var binding:ActivityMovieDetailBinding
 
     private val viewModel:MovieDetailViewModel by viewModels()
@@ -86,15 +88,22 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener {
 
         binding.tvRateImdbMovieDetail.text = "Imdb: ${movie.rate_imdb}"
 
+
+
     }
 
     private fun setUpUiDetailMovie(detailMovie: DetailMovie){
         imageLoading.load(binding.ivMovieDetail , detailMovie.link_img)
         binding.tvDescriptionDetailMovie.text = detailMovie.description
+        binding.ivPlayMovie.setOnClickListener {
+            startActivity(Intent(this , PlayMovieActivity::class.java).apply {
+                putExtra(EXTRA_KEY_DATA ,detailMovie.link_movie)
+            })
+        }
     }
 
     private fun setSeasonMovie(seasons:List<Season>){
-        val seasonMovieAdapter = SeasonMovieAdapter(imageLoading)
+        val seasonMovieAdapter = SeasonMovieAdapter(imageLoading , this)
         seasonMovieAdapter.setData(seasons)
         binding.rvSeasonMovieDetail.setHorizontalRecyclerView(this , binding.rvSeasonMovieDetail)
         binding.rvSeasonMovieDetail.adapter = seasonMovieAdapter
@@ -120,8 +129,14 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener {
         })
     }
 
-    fun getRandom():Int{
+    private fun getRandom():Int{
         return (1..7).random().toInt()
+    }
+
+    override fun onSeasonClick(season: Season) {
+        startActivity(Intent(this , EpisodeActivity::class.java).apply {
+            putExtra(EXTRA_KEY_DATA , season.id)
+        })
     }
 
 
