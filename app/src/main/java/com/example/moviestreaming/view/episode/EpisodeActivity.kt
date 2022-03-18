@@ -3,6 +3,7 @@ package com.example.moviestreaming.view.episode
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviestreaming.R
@@ -40,6 +41,10 @@ class EpisodeActivity : AppCompatActivity(),EpisodeAdapter.OnEpisodeClickListene
         episodeAdapter.setData(episodes)
         binding.rvEpisodes.layoutManager = GridLayoutManager(this , 2)
         binding.rvEpisodes.adapter = episodeAdapter
+
+        binding.toolbar.onBackClickListener = View.OnClickListener {
+            finish()
+        }
 
     }
 

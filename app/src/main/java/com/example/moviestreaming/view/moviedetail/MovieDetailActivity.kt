@@ -100,6 +100,10 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
                 putExtra(EXTRA_KEY_DATA ,detailMovie.link_movie)
             })
         }
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setSeasonMovie(seasons:List<Season>){

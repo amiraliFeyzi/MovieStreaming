@@ -14,9 +14,12 @@
         android:theme="@style/Theme.MovieStreaming"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.genremovie.GenreMovieActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.player.PlayMovieActivity"
-            android:exported="false"
-            android:configChanges="orientation|screenSize|layoutDirection"/>
+            android:configChanges="orientation|screenSize|layoutDirection"
+            android:exported="false" />
         <activity
             android:name=".view.episode.EpisodeActivity"
             android:exported="false" />

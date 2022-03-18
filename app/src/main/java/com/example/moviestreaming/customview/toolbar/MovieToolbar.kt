@@ -19,8 +19,16 @@ class MovieToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context
         findViewById<ImageView>(R.id.backBtn).setOnClickListener(onBackClickListener)
     }
 
-    init {
+    var showBackBtn = true
+    fun checkBackBtnShow(){
+        if (showBackBtn){
+            findViewById<ImageView>(R.id.backBtn).visibility = View.VISIBLE
+        }else{
+            findViewById<ImageView>(R.id.backBtn).visibility = View.INVISIBLE
+        }
+    }
 
+    init {
         setToolbar(context , attrs)
     }
 

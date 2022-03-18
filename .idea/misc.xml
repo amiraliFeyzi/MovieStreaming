@@ -8,19 +8,21 @@
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_rate_imdb.xml" value="0.134" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_tv_rank.xml" value="0.125" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_episode.xml" value="0.19947916666666668" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_genre_movie.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_movie_detail.xml" value="0.18" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_movie_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_play_movie.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_buy_account.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_favorite.xml" value="0.20416666666666666" />
-        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_genre.xml" value="0.20416666666666666" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_genre.xml" value="0.2" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_movie_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_cast.xml" value="0.33" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_episode.xml" value="0.45839210155148097" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_genre.xml" value="0.2" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_movie.xml" value="0.25" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_movie_list.xml" value="0.22" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_popular_movie.xml" value="0.20416666666666666" />

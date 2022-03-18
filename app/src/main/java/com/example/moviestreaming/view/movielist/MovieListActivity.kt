@@ -2,6 +2,7 @@ package com.example.moviestreaming.view.movielist
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviestreaming.R
@@ -45,17 +46,21 @@ class MovieListActivity : AppCompatActivity(),MovieAdapter.OnMovieClickListener 
 
     private fun setUpUi(movieList:List<Movie>){
         binding.rvMovie.setLinearRecyclerView(this , binding.rvMovie)
-        val movieAdapter = MovieListAdapter(imageLoading)
+        val movieAdapter = MovieAdapter(imageLoading , this )
         movieAdapter.setData(movieList)
-        movieAdapter.onMovieClickListener = this
-        binding.rvMovie.adapter = movieAdapter
+        movieAdapter.setViewType(MOVIE_LIST_VIEW_TYPE)
 
+        binding.rvMovie.adapter = movieAdapter
         when(movieList[0].category_name){
             CATEGORY_NAME_TOP_MOVIE_IMDB -> binding.toolbar.tvTittleToolbar.text = getString(R.string.top_movie_imdb)
             CATEGORY_NAME_MOVIE_NEW -> binding.toolbar.tvTittleToolbar.text = getString(R.string.new_movie)
             CATEGORY_NAME_SERIES -> binding.toolbar.tvTittleToolbar.text = getString(R.string.series)
             CATEGORY_NAME_POPULAR_MOVIE -> binding.toolbar.tvTittleToolbar.text = getString(R.string.popular_movie)
             CATEGORY_NAME_ANIMATION -> binding.toolbar.tvTittleToolbar.text = getString(R.string.animation)
+        }
+
+        binding.toolbar.onBackClickListener = View.OnClickListener {
+            finish()
         }
     }
 
