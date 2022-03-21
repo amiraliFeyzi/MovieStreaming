@@ -11,5 +11,6 @@ interface MovieRepository {
 
     suspend fun getAllMovieList(categoryName:String):Flow<List<Movie>>
 
+    suspend fun searchMovie(name:String):Flow<List<Movie>>
 
 }

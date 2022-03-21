@@ -14,4 +14,7 @@ class MovieRemoteDataSource(private val apiService: ApiService): MovieDataSource
     override suspend fun getAllMovieList(categoryName: String): List<Movie> =
         apiService.getAllMovieList(categoryName)
 
+    override suspend fun searchMovie(name: String): List<Movie> =
+        apiService.searchMovie(name)
+
 }

@@ -10,4 +10,6 @@ interface MovieDataSource {
 
     suspend fun getAllMovieList(categoryName:String):List<Movie>
 
+    suspend fun searchMovie(name:String):List<Movie>
+
 }
