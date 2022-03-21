@@ -3,6 +3,7 @@ package com.example.moviestreaming.di
 import com.example.moviestreaming.model.datasource.detailmovie.DetailMovieRemoteDataSource
 import com.example.moviestreaming.model.datasource.episode.EpisodeRemoteDataSource
 import com.example.moviestreaming.model.datasource.genre.GenreRemoteDataSource
+import com.example.moviestreaming.model.datasource.intro.IntroRemoteDataSource
 import com.example.moviestreaming.model.datasource.movie.MovieRemoteDataSource
 import com.example.moviestreaming.model.network.ApiService
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepository
@@ -11,6 +12,8 @@ import com.example.moviestreaming.model.repository.episode.EpisodeRepository
 import com.example.moviestreaming.model.repository.episode.EpisodeRepositoryImpl
 import com.example.moviestreaming.model.repository.genre.GenreRepository
 import com.example.moviestreaming.model.repository.genre.GenreRepositoryImpl
+import com.example.moviestreaming.model.repository.intro.IntroRepository
+import com.example.moviestreaming.model.repository.intro.IntroRepositoryImpl
 import com.example.moviestreaming.model.repository.movie.MovieRepository
 import com.example.moviestreaming.model.repository.movie.MovieRepositoryImpl
 import dagger.Module
@@ -45,6 +48,12 @@ object RepositoryModule {
     @Provides
     fun provideGenreRepository(apiService: ApiService):GenreRepository{
         return GenreRepositoryImpl(GenreRemoteDataSource(apiService))
+    }
+
+    @Singleton
+    @Provides
+    fun provideIntroRepository(apiService: ApiService):IntroRepository{
+        return IntroRepositoryImpl(IntroRemoteDataSource(apiService))
     }
 
 }

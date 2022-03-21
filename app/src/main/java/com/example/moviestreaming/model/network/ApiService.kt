@@ -34,4 +34,7 @@ interface ApiService {
 
     @GET("getSearch.php")
     suspend fun searchMovie(@Query("name")nameMovie:String):List<Movie>
+
+    @GET("getIntro.php")
+    suspend fun getIntro():List<Intro>
 }

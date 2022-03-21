@@ -17,7 +17,6 @@
     <string name="similarMovie">Similar Movie:</string>
     <string name="episodes">Episodes</string>
     <string name="chooseCategory">Choose Your Category:</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="goToApp">Go App</string>
 
 </resources>
