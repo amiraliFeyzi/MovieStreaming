@@ -23,6 +23,9 @@ class GenreFragment : BaseFragment(),GenreAdapter.OnGenreClickListener {
 
     private val viewModel:GenreViewModel by viewModels()
 
+    @Inject
+    lateinit var imageLoading:ImageLoading
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,

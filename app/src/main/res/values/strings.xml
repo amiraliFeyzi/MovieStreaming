@@ -18,5 +18,23 @@
     <string name="episodes">Episodes</string>
     <string name="chooseCategory">Choose Your Category:</string>
     <string name="goToApp">Go App</string>
-
+    <string name="welcomeText">Watch Your Favorite Movie</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="noAccount">No Account?Sign UP</string>
+    <string name="haveAccount">Have You Account?LogIn</string>
+    <string name="emailValidate">Email Not Validate</string>
+    <string name="loginFailed">Login Failed</string>
+    <string name="registerFailed">Register Failed</string>
+    <string name="emailNotExits">Email Not Exists</string>
+    <string name="valueInput">Input are should not be empty</string>
+    <string name="passwordValue">Password More 7 , Less 15</string>
+    <string name="emailExits">Email Exists</string>
+    <string name="verifyPhone">Verify Phone Number</string>
+    <string name="check">Check</string>
+    <string name="retry">Retry</string>
+    <string name="internetConnection">No Internet !!</string>
+    <string name="connected">Connected</string>
 </resources>

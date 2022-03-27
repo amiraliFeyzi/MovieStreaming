@@ -37,4 +37,10 @@ interface ApiService {
 
     @GET("getIntro.php")
     suspend fun getIntro():List<Intro>
+
+    @GET("login.php")
+    suspend fun login(@Query("email")email:String , @Query("password")password:String):String
+
+    @GET("register.php")
+    suspend fun signUp(@Query("email")email:String, @Query("phone")phone:String, @Query("password")password:String):String
 }

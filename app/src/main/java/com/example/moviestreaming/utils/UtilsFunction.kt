@@ -11,3 +11,5 @@ fun RecyclerView.setHorizontalRecyclerView(context: Context, recyclerView: Recyc
 fun RecyclerView.setLinearRecyclerView(context: Context, recyclerView: RecyclerView){
     recyclerView.layoutManager = LinearLayoutManager(context , RecyclerView.VERTICAL ,false)
 }
+
+

@@ -1,10 +1,14 @@
 package com.example.moviestreaming.di
 
+import android.content.SharedPreferences
 import com.example.moviestreaming.model.datasource.detailmovie.DetailMovieRemoteDataSource
 import com.example.moviestreaming.model.datasource.episode.EpisodeRemoteDataSource
 import com.example.moviestreaming.model.datasource.genre.GenreRemoteDataSource
 import com.example.moviestreaming.model.datasource.intro.IntroRemoteDataSource
 import com.example.moviestreaming.model.datasource.movie.MovieRemoteDataSource
+import com.example.moviestreaming.model.datasource.user.UserDataSource
+import com.example.moviestreaming.model.datasource.user.UserLocalDataSource
+import com.example.moviestreaming.model.datasource.user.UserRemoteDataSource
 import com.example.moviestreaming.model.network.ApiService
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepository
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepositoryImpl
@@ -16,6 +20,8 @@ import com.example.moviestreaming.model.repository.intro.IntroRepository
 import com.example.moviestreaming.model.repository.intro.IntroRepositoryImpl
 import com.example.moviestreaming.model.repository.movie.MovieRepository
 import com.example.moviestreaming.model.repository.movie.MovieRepositoryImpl
+import com.example.moviestreaming.model.repository.user.UserRepository
+import com.example.moviestreaming.model.repository.user.UserRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -54,6 +60,18 @@ object RepositoryModule {
     @Provides
     fun provideIntroRepository(apiService: ApiService):IntroRepository{
         return IntroRepositoryImpl(IntroRemoteDataSource(apiService))
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserRepository(apiService: ApiService , sharedPreferences: SharedPreferences):UserRepository{
+        return UserRepositoryImpl(UserRemoteDataSource(apiService) , UserLocalDataSource(sharedPreferences))
+    }
+
+    @Singleton
+    @Provides
+    fun provideLocalDataSource(sharedPreferences: SharedPreferences):UserLocalDataSource{
+        return UserLocalDataSource(sharedPreferences)
     }
 
 }

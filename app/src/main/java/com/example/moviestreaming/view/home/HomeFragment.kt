@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.moviestreaming.base.BaseFragment
+import com.example.moviestreaming.cumponents.imagview.ImageLoading
 import com.example.moviestreaming.databinding.FragmentHomeBinding
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.model.dataclass.Slider
@@ -15,6 +16,7 @@ import com.example.moviestreaming.view.home.adapter.MovieAdapter
 import com.example.moviestreaming.view.home.adapter.SliderAdapter
 import com.example.moviestreaming.view.moviedetail.MovieDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment(),MovieAdapter.OnMovieClickListener {
@@ -22,6 +24,10 @@ class HomeFragment : BaseFragment(),MovieAdapter.OnMovieClickListener {
     private val binding get() = _binding!!
 
     private val viewModel:HomeViewModel by viewModels()
+
+
+    @Inject
+    lateinit var imageLoading: ImageLoading
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

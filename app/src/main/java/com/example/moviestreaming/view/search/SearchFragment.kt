@@ -10,12 +10,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviestreaming.base.BaseFragment
+import com.example.moviestreaming.cumponents.imagview.ImageLoading
 import com.example.moviestreaming.databinding.FragmentSearchBinding
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.utils.variables.EXTRA_KEY_DATA
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
 import com.example.moviestreaming.view.moviedetail.MovieDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment() , MovieAdapter.OnMovieClickListener {
@@ -23,6 +25,10 @@ class SearchFragment : BaseFragment() , MovieAdapter.OnMovieClickListener {
     private val binding get() = _binding!!
 
     private val viewModel:SearchViewModel by viewModels()
+
+    @Inject
+    lateinit var imageLoading: ImageLoading
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,

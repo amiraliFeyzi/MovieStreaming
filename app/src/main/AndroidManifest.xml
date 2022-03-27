@@ -14,13 +14,21 @@
         android:theme="@style/Theme.MovieStreaming"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.intro.IntroActivity"
+            android:name=".view.splash.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.auth.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.intro.IntroActivity"
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".view.genremovie.GenreMovieActivity"
@@ -40,9 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".view.home.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

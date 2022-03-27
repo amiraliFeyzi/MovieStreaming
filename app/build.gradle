@@ -83,4 +83,11 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer:2.17.1"
     implementation "com.google.android.exoplayer:exoplayer-ui:2.17.1"
 
+    //PinView
+    implementation "io.github.chaosleung:pinview:1.4.4"
+
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
 }

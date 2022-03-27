@@ -28,10 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        style="@style/ButtonStyle"
         android:text="@string/goToApp"
-        android:textAppearance="?textAppearanceHeadline5"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toTopOf="@+id/sliderIndicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

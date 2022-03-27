@@ -1,10 +1,10 @@
 package com.example.moviestreaming.base
 
+import android.content.Context
 import androidx.fragment.app.Fragment
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
-import javax.inject.Inject
 
-abstract class BaseFragment :Fragment() , View{
-    @Inject
-    lateinit var imageLoading: ImageLoading
+abstract class BaseFragment :Fragment() , BaseView{
+
+    override val rootContext: Context
+        get() = requireContext()
 }
