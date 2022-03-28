@@ -14,7 +14,11 @@
         android:id="@+id/buyAccountFragment"
         android:name="com.example.moviestreaming.view.buyaccount.BuyAccountFragment"
         android:label="fragment_buy_account"
-        tools:layout="@layout/fragment_buy_account" />
+        tools:layout="@layout/fragment_buy_account" >
+        <action
+            android:id="@+id/action_buyAccountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.moviestreaming.view.favortie.FavoriteFragment"

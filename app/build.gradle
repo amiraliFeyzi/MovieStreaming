@@ -15,8 +15,8 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -89,5 +89,9 @@ dependencies {
 
     //Lottie
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    //Zarin Pal
+    implementation "com.zarinpal:payment-provider:0.5.3"
+
 
 }

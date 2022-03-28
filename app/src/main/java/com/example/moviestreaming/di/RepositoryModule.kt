@@ -1,6 +1,8 @@
 package com.example.moviestreaming.di
 
 import android.content.SharedPreferences
+import com.example.moviestreaming.model.datasource.account.local.UserAccountLocalDataSourceImpl
+import com.example.moviestreaming.model.datasource.account.remote.UserAccountRemoteDataSourceImpl
 import com.example.moviestreaming.model.datasource.detailmovie.DetailMovieRemoteDataSource
 import com.example.moviestreaming.model.datasource.episode.EpisodeRemoteDataSource
 import com.example.moviestreaming.model.datasource.genre.GenreRemoteDataSource
@@ -10,6 +12,8 @@ import com.example.moviestreaming.model.datasource.user.UserDataSource
 import com.example.moviestreaming.model.datasource.user.UserLocalDataSource
 import com.example.moviestreaming.model.datasource.user.UserRemoteDataSource
 import com.example.moviestreaming.model.network.ApiService
+import com.example.moviestreaming.model.repository.account.UserAccountRepository
+import com.example.moviestreaming.model.repository.account.UserAccountRepositoryImpl
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepository
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepositoryImpl
 import com.example.moviestreaming.model.repository.episode.EpisodeRepository
@@ -72,6 +76,12 @@ object RepositoryModule {
     @Provides
     fun provideLocalDataSource(sharedPreferences: SharedPreferences):UserLocalDataSource{
         return UserLocalDataSource(sharedPreferences)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserAccountRepository(apiService: ApiService):UserAccountRepository{
+        return UserAccountRepositoryImpl(UserAccountRemoteDataSourceImpl(apiService) , UserAccountLocalDataSourceImpl())
     }
 
 }

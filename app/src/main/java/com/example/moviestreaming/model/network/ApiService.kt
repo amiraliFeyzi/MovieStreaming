@@ -43,4 +43,7 @@ interface ApiService {
 
     @GET("register.php")
     suspend fun signUp(@Query("email")email:String, @Query("phone")phone:String, @Query("password")password:String):String
+
+    @GET("getInformationBuyAccount.php")
+    suspend fun getBuyAccountInfo():List<BuyAccount>
 }
