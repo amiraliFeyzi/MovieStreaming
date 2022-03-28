@@ -2,6 +2,7 @@ package com.example.moviestreaming.model.network
 
 import com.example.moviestreaming.model.dataclass.*
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiService {
@@ -46,4 +47,11 @@ interface ApiService {
 
     @GET("getInformationBuyAccount.php")
     suspend fun getBuyAccountInfo():List<BuyAccount>
+
+    @GET("getSubscription.php")
+    suspend fun getSubscriptionUser(@Query("email")emailUser:String):List<Subscription>
+
+    @POST("send_subscription.php")
+    suspend fun sendSubscription(@Query("email")email: String
+                         , @Query("subscription") subscription:String)
 }

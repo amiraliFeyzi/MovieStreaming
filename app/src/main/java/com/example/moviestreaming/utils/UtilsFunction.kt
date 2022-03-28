@@ -12,4 +12,14 @@ fun RecyclerView.setLinearRecyclerView(context: Context, recyclerView: RecyclerV
     recyclerView.layoutManager = LinearLayoutManager(context , RecyclerView.VERTICAL ,false)
 }
 
+fun convertUnixTimeToDay(unixTime:Long):Long{
+    var unix = unixTime
+    unix /= 24
+    unix /= 60
+    unix /= 60
+    unix /= 1000
+
+    return unix
+}
+
 

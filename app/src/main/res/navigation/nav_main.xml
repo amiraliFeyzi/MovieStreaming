@@ -12,13 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/buyAccountFragment"
-        android:name="com.example.moviestreaming.view.buyaccount.BuyAccountFragment"
+        android:name="com.example.moviestreaming.view.user.buyaccount.BuyAccountFragment"
         android:label="fragment_buy_account"
-        tools:layout="@layout/fragment_buy_account" >
-        <action
-            android:id="@+id/action_buyAccountFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_buy_account" />
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.moviestreaming.view.favortie.FavoriteFragment"
@@ -31,7 +27,7 @@
         tools:layout="@layout/fragment_genre" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.moviestreaming.view.profile.ProfileFragment"
+        android:name="com.example.moviestreaming.view.user.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment

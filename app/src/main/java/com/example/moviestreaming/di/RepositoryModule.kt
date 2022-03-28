@@ -80,8 +80,8 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideUserAccountRepository(apiService: ApiService):UserAccountRepository{
-        return UserAccountRepositoryImpl(UserAccountRemoteDataSourceImpl(apiService) , UserAccountLocalDataSourceImpl())
+    fun provideUserAccountRepository(apiService: ApiService ,sharedPreferences: SharedPreferences):UserAccountRepository{
+        return UserAccountRepositoryImpl(UserAccountRemoteDataSourceImpl(apiService) , UserAccountLocalDataSourceImpl(sharedPreferences))
     }
 
 }

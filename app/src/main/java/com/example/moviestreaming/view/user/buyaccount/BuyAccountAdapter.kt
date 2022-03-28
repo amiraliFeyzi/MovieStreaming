@@ -1,4 +1,4 @@
-package com.example.moviestreaming.view.buyaccount
+package com.example.moviestreaming.view.user.buyaccount
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ class BuyAccountAdapter(private val buyAccountClickListener: BuyAccountClickList
             binding.tvPriceBuyAcc.text = buyAccount.price
 
             binding.root.setOnClickListener {
-                buyAccountClickListener.onClickBuyAccount(buyAccount)
+                buyAccountClickListener.onClickBuyAccount(buyAccount , adapterPosition)
             }
         }
     }
@@ -39,6 +39,6 @@ class BuyAccountAdapter(private val buyAccountClickListener: BuyAccountClickList
     override fun getItemCount(): Int  = buyAccountList.size
 
     interface BuyAccountClickListener{
-        fun onClickBuyAccount(buyAccount: BuyAccount)
+        fun onClickBuyAccount(buyAccount: BuyAccount , position: Int)
     }
 }

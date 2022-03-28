@@ -40,4 +40,9 @@
     <string name="watch_every">You Can Watch Everything !!!</string>
     <string name="download_all_movie">You Can Download All Movoie !!!</string>
     <string name="latest_movie">The latest movies !!!</string>
+    <string name="personal_detail">Personal Detail</string>
+    <string name="emailProfile">Email:</string>
+    <string name="remaining_subscription">Remaining Subscription:</string>
+    <string name="charge_account">Charge Account:</string>
+    <string name="nothing">Nothing!!</string>
 </resources>
