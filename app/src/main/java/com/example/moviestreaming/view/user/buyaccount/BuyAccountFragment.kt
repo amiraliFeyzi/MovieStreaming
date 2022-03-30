@@ -17,7 +17,7 @@ class BuyAccountFragment : BaseFragment(),BuyAccountAdapter.BuyAccountClickListe
     private var _binding: FragmentBuyAccountBinding?=null
     private val binding get() = _binding!!
 
-    private val userViewModel: AccountUserViewModel by viewModels()
+    private val viewModel: AccountUserViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -36,10 +36,18 @@ class BuyAccountFragment : BaseFragment(),BuyAccountAdapter.BuyAccountClickListe
     }
 
     private fun observeData(){
-        userViewModel.buyAccountListLiveData.observe(viewLifecycleOwner){
+        getData()
+        viewModel.buyAccountListLiveData.observe(viewLifecycleOwner){
             setUpUi(it)
         }
 
+    }
+
+    //call getData method From ViewModel
+    private fun getData(){
+        viewModel.getListBuyAccount()
+        viewModel.getSubscriptionUserFromServer()
+        viewModel.setPayment()
     }
 
     private fun setUpUi(buyAccountList:List<BuyAccount>){
@@ -62,13 +70,13 @@ class BuyAccountFragment : BaseFragment(),BuyAccountAdapter.BuyAccountClickListe
     override fun onClickBuyAccount(buyAccount: BuyAccount , position:Int) {
         when(position){
             0-> {
-                userViewModel.buyAccountByUser(2592000000 , "+30 Days")
+                viewModel.buyAccountByUser(2592000000 , "+30 Days")
             }
             1->{
-                userViewModel.buyAccountByUser(7776000000 , "+90 Days")
+                viewModel.buyAccountByUser(7776000000 , "+90 Days")
             }
             2->{
-                userViewModel.buyAccountByUser(15552000000 , "+270 Days")
+                viewModel.buyAccountByUser(15552000000 , "+270 Days")
             }
         }
     }

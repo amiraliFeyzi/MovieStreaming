@@ -21,18 +21,11 @@ class AccountUserViewModel @Inject constructor(private val userAccountRepository
     val buyAccountListLiveData:LiveData<List<BuyAccount>> get() = _buyAccountListLiveData
     val paymentLiveData:LiveData<Payment> get() = _paymentLiveData
 
-    init {
-        getListBuyAccount()
-        getSubscriptionUserFromServer()
-        setPayment()
 
+    fun setPayment(){
+        _paymentLiveData.value = Payment("" , userAccountRepository.getSubscription())
     }
-
-    private fun setPayment(){
-        _paymentLiveData.value = Payment("null" , userAccountRepository.getSubscription())
-
-    }
-    private fun getListBuyAccount(){
+    fun getListBuyAccount(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             userAccountRepository.getBuyAccountInfo().collect{
                 _buyAccountListLiveData.postValue(it)
@@ -40,7 +33,7 @@ class AccountUserViewModel @Inject constructor(private val userAccountRepository
         }
     }
 
-    private fun getSubscriptionUserFromServer(){
+    fun getSubscriptionUserFromServer(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             userAccountRepository.getSubscriptionUser(UserInformation.email!!).collect{
                 it.forEach { subscriptionUser ->

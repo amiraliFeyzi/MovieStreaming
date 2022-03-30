@@ -71,7 +71,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="120dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,6 +117,30 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_title_remaining_profile"
                 app:layout_constraintTop_toTopOf="@+id/tv_title_remaining_profile"
                 tools:text="100 month" />
+
+
+            <TextView
+                android:id="@+id/tvTittleChargeAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/charge_account"
+                android:textAppearance="?textAppearanceHeadline5"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_remaining_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_remaining_profile"
+                android:visibility="gone"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tvChargeTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?textAppearanceHeadline5"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTittleChargeAccount"
+                app:layout_constraintStart_toEndOf="@+id/tvTittleChargeAccount"
+                app:layout_constraintTop_toTopOf="@+id/tvTittleChargeAccount"
+                tools:text="+30 Day"
+                android:visibility="gone"
+                android:layout_marginStart="8dp"/>
 
 
 
