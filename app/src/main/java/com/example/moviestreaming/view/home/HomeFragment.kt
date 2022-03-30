@@ -147,5 +147,9 @@ class HomeFragment : BaseFragment(),MovieAdapter.OnMovieClickListener {
         })
     }
 
+    override fun onFavoriteBtnClick(movie: Movie) {
+
+    }
+
 
 }

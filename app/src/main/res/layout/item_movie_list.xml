@@ -129,6 +129,7 @@
                 tools:text="rank:" />
 
             <ImageView
+                android:id="@+id/ivFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_favorite_border_24"

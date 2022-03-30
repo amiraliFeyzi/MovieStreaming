@@ -52,5 +52,8 @@ class GenreMovieActivity : AppCompatActivity() , MovieAdapter.OnMovieClickListen
         })
     }
 
+    override fun onFavoriteBtnClick(movie: Movie) {
+    }
+
 
 }

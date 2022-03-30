@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.example.moviestreaming.base.BaseViewModel
 import com.example.moviestreaming.model.dataclass.Movie
+import com.example.moviestreaming.model.dataclass.MovieEntity
 import com.example.moviestreaming.model.repository.movie.MovieRepository
 import com.example.moviestreaming.utils.variables.EXTRA_KEY_CATEGORY
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,11 +27,23 @@ class MovieListViewModel @Inject constructor(private val savedStateHandle: Saved
 
      fun getMovieList(){
          viewModelScope.launch (Dispatchers.IO + coroutineExceptionHandler){
-             movieRepository.getAllMovieList(getCategoryName()).collect{
-                 _movieList.postValue(it)
-             }
+             _movieList.postValue(movieRepository.getAllMovieList(getCategoryName()))
          }
      }
+
+
+    fun addMovieToFavorite(movieEntity: MovieEntity){
+        viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
+            movieRepository.addMovieToFavorite(movieEntity)
+
+        }
+    }
+
+    fun deleteMovieFromFavorite(movieEntity: MovieEntity){
+        viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
+            movieRepository.deleteMovieFromFavorite(movieEntity)
+        }
+    }
 
 
 }

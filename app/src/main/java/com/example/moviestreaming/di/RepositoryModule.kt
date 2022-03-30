@@ -1,14 +1,15 @@
 package com.example.moviestreaming.di
 
 import android.content.SharedPreferences
+import com.example.moviestreaming.model.database.MovieDao
 import com.example.moviestreaming.model.datasource.account.local.UserAccountLocalDataSourceImpl
 import com.example.moviestreaming.model.datasource.account.remote.UserAccountRemoteDataSourceImpl
 import com.example.moviestreaming.model.datasource.detailmovie.DetailMovieRemoteDataSource
 import com.example.moviestreaming.model.datasource.episode.EpisodeRemoteDataSource
 import com.example.moviestreaming.model.datasource.genre.GenreRemoteDataSource
 import com.example.moviestreaming.model.datasource.intro.IntroRemoteDataSource
-import com.example.moviestreaming.model.datasource.movie.MovieRemoteDataSource
-import com.example.moviestreaming.model.datasource.user.UserDataSource
+import com.example.moviestreaming.model.datasource.movie.local.MovieLocalDataSourceImpl
+import com.example.moviestreaming.model.datasource.movie.remote.MovieRemoteRemoteDataSourceImpl
 import com.example.moviestreaming.model.datasource.user.UserLocalDataSource
 import com.example.moviestreaming.model.datasource.user.UserRemoteDataSource
 import com.example.moviestreaming.model.network.ApiService
@@ -38,8 +39,8 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideMovieRepository(apiService: ApiService):MovieRepository{
-        return MovieRepositoryImpl(MovieRemoteDataSource(apiService))
+    fun provideMovieRepository(apiService: ApiService ,movieDao: MovieDao):MovieRepository{
+        return MovieRepositoryImpl(MovieRemoteRemoteDataSourceImpl(apiService) , MovieLocalDataSourceImpl(movieDao))
     }
 
     @Singleton

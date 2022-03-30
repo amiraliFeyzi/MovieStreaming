@@ -9,6 +9,7 @@ import com.example.moviestreaming.R
 import com.example.moviestreaming.cumponents.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ActivityMovieListBinding
 import com.example.moviestreaming.model.dataclass.Movie
+import com.example.moviestreaming.model.dataclass.MovieEntity
 import com.example.moviestreaming.utils.setLinearRecyclerView
 import com.example.moviestreaming.utils.variables.*
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
@@ -68,5 +69,15 @@ class MovieListActivity : AppCompatActivity(),MovieAdapter.OnMovieClickListener 
         startActivity(Intent(this , MovieDetailActivity::class.java).apply {
             putExtra(EXTRA_KEY_DATA , movie)
         })
+    }
+
+    override fun onFavoriteBtnClick(movie: Movie) {
+        if(movie.isFavorite){
+            val movieEntity  = MovieEntity(movie.category_name , movie.id, movie.link_img , movie.name)
+            viewModel.deleteMovieFromFavorite(movieEntity)
+        }else{
+            val movieEntity  = MovieEntity(movie.category_name , movie.id , movie.link_img , movie.name)
+            viewModel.addMovieToFavorite(movieEntity)
+        }
     }
 }

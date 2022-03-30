@@ -40,42 +40,34 @@ class HomeViewModel @Inject constructor(private val movieRepository: MovieReposi
 
     fun getTopMovieImdbList(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            movieRepository.getMovieList(CATEGORY_NAME_TOP_MOVIE_IMDB).collect{
-                _topMovieImdbLiveData.postValue(it)
-            }
+            _topMovieImdbLiveData.postValue(movieRepository.getMovieList(CATEGORY_NAME_TOP_MOVIE_IMDB))
         }
     }
 
     fun getNewMovieList(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            movieRepository.getMovieList(CATEGORY_NAME_MOVIE_NEW).collect{
-                _newMovieLiveData.postValue(it)
-            }
+            _newMovieLiveData.postValue(movieRepository.getMovieList(CATEGORY_NAME_MOVIE_NEW))
         }
     }
 
     fun getSeriesList(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            movieRepository.getMovieList(CATEGORY_NAME_SERIES).collect{
-                _seriesLiveData.postValue(it)
-            }
+            _seriesLiveData.postValue(movieRepository.getMovieList(CATEGORY_NAME_SERIES))
         }
     }
 
     fun getPopularMovieList(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            movieRepository.getMovieList(CATEGORY_NAME_POPULAR_MOVIE).collect{
-                _popularMovieLiveData.postValue(it)
-            }
+            _popularMovieLiveData.postValue(movieRepository.getMovieList(CATEGORY_NAME_POPULAR_MOVIE))
         }
     }
 
     fun getAnimationList(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            movieRepository.getMovieList(CATEGORY_NAME_ANIMATION).collect{
-                _animationLiveData.postValue(it)
-            }
+            _animationLiveData.postValue(movieRepository.getMovieList(CATEGORY_NAME_ANIMATION))
         }
     }
+
+
 
 }

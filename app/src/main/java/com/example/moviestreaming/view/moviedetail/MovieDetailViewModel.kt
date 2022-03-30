@@ -41,7 +41,7 @@ class MovieDetailViewModel @Inject constructor(private val savedStateHandle: Sav
 
     fun getDetailMovie(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            detailMovieRepository.getDetailMovie(getMovie().id).collect{
+            detailMovieRepository.getDetailMovie(getMovie().id.toString()).collect{
                 _detailMovieLiveData.postValue(it)
             }
         }
@@ -49,7 +49,7 @@ class MovieDetailViewModel @Inject constructor(private val savedStateHandle: Sav
 
     fun getSeasonMovie(){
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            detailMovieRepository.getSeasonMovie(getMovie().id).collect{
+            detailMovieRepository.getSeasonMovie(getMovie().id.toString()).collect{
                 _seasonMovieLiveData.postValue(it)
             }
         }
@@ -57,7 +57,7 @@ class MovieDetailViewModel @Inject constructor(private val savedStateHandle: Sav
 
     fun getCastMovie(){
         viewModelScope.launch (Dispatchers.IO + coroutineExceptionHandler){
-            detailMovieRepository.getCastMovie(getMovie().id).collect{
+            detailMovieRepository.getCastMovie(getMovie().id.toString()).collect{
                 _castMovieLiveData.postValue(it)
             }
         }

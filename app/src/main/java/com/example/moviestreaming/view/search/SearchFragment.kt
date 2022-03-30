@@ -94,5 +94,9 @@ class SearchFragment : BaseFragment() , MovieAdapter.OnMovieClickListener {
         })
     }
 
+    override fun onFavoriteBtnClick(movie: Movie) {
+
+    }
+
 
 }

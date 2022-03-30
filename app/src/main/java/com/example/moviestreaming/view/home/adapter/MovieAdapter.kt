@@ -72,6 +72,12 @@ class MovieAdapter (private val imageLoading: ImageLoading , private val onMovie
                 binding.ivTime.setImageResource(R.drawable.ic_baseline_folder_special_24)
             }
 
+            if (movie.isFavorite){
+                binding.ivFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }else{
+                binding.ivFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+
             imageLoading.loadWithCorners(binding.ivMovieList , movie.link_img , 20f)
             binding.tvNameMovieList.text = movie.name
             binding.tvDirectorMovieList.text = "Director: ${movie.director}"
@@ -83,6 +89,12 @@ class MovieAdapter (private val imageLoading: ImageLoading , private val onMovie
 
             binding.root.setOnClickListener {
                 onMovieClickListener.onClick(movie)
+            }
+
+            binding.ivFavorite.setOnClickListener {
+                onMovieClickListener.onFavoriteBtnClick(movie)
+                movie.isFavorite = !movie.isFavorite
+                notifyItemChanged(adapterPosition)
             }
 
 
@@ -128,6 +140,7 @@ class MovieAdapter (private val imageLoading: ImageLoading , private val onMovie
 
     interface OnMovieClickListener{
         fun onClick(movie: Movie)
+        fun onFavoriteBtnClick(movie: Movie)
     }
 
 }

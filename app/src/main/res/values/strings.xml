@@ -45,4 +45,5 @@
     <string name="remaining_subscription">Remaining Subscription:</string>
     <string name="charge_account">Charge Account:</string>
     <string name="nothing">Nothing!!</string>
+    <string name="deleteFavorite">To remove item from favorites, keep on the Movie photo</string>
 </resources>

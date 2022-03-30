@@ -1,10 +1,10 @@
-package com.example.moviestreaming.model.datasource.movie
+package com.example.moviestreaming.model.datasource.movie.remote
 
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.model.dataclass.Slider
 import com.example.moviestreaming.model.network.ApiService
 
-class MovieRemoteDataSource(private val apiService: ApiService): MovieDataSource {
+class MovieRemoteRemoteDataSourceImpl(private val apiService: ApiService): MovieRemoteDataSource {
 
     override suspend fun getSliderMovie(): List<Slider>  = apiService.getSlider()
 

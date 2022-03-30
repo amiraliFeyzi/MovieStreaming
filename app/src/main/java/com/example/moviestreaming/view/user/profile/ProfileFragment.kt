@@ -19,7 +19,7 @@ class ProfileFragment : BaseFragment() {
     private var _binding: FragmentProfileBinding?=null
     private val binding get() = _binding!!
 
-    private val userViewModel: AccountUserViewModel by viewModels()
+    private val viewModel: AccountUserViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -35,7 +35,9 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun observeData(){
-        userViewModel.paymentLiveData.observe(viewLifecycleOwner){
+        viewModel.getSubscriptionUserFromServer()
+
+        viewModel.paymentLiveData.observe(viewLifecycleOwner){
 
             var subscriptionTime = it.subscription  - System.currentTimeMillis()
 
@@ -45,8 +47,15 @@ class ProfileFragment : BaseFragment() {
             }else{
                 binding.tvCountAccount.text = getString(R.string.nothing)
             }
+            if (it.chargeTime.isNotBlank()){
+                binding.tvChargeTime.visibility = View.VISIBLE
+                binding.tvTittleChargeAccount.visibility = View.VISIBLE
+                binding.tvChargeTime.text = it.chargeTime
+            }
+
 
         }
+
 
         setUpUi()
     }

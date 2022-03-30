@@ -1,5 +1,7 @@
 package com.example.moviestreaming.utils.variables
 
+import com.example.moviestreaming.model.database.AppDataBase
+
 const val MOVIE_VIEW_TYPE = 0
 const val POPULAR_MOVIE_VIEW_TYPE = 1
 const val MOVIE_LIST_VIEW_TYPE = 2
@@ -12,3 +14,4 @@ const val SHARED_NAME = "app_info"
 const val SUBSCRIPTION = "subscription"
 const val MERCHANT_ID = ""
 const val CALLBACK_URL = "moviestreaming://com.example.moviestreaming"
+const val AppDataBaseNAME = "db_app"

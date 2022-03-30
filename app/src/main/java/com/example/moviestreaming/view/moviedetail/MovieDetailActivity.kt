@@ -133,8 +133,12 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
         })
     }
 
+    override fun onFavoriteBtnClick(movie: Movie) {
+
+    }
+
     private fun getRandom():Int{
-        return (1..7).random().toInt()
+        return (1..7).random()
     }
 
     override fun onSeasonClick(season: Season) {

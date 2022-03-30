@@ -1,9 +1,9 @@
-package com.example.moviestreaming.model.datasource.movie
+package com.example.moviestreaming.model.datasource.movie.remote
 
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.model.dataclass.Slider
 
-interface MovieDataSource {
+interface MovieRemoteDataSource {
     suspend fun getSliderMovie():List<Slider>
 
     suspend fun getMovieList(categoryName:String):List<Movie>
