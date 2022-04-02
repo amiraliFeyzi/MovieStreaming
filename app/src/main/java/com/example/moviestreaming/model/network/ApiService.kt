@@ -54,4 +54,12 @@ interface ApiService {
     @POST("send_subscription.php")
     suspend fun sendSubscription(@Query("email")email: String
                          , @Query("subscription") subscription:String)
+
+    @POST("addCommnet.php")
+    suspend fun addComment(@Query("id_item")idMovie: String ,
+                           @Query("comment")comment:String , @Query("email")email:String)
+
+
+    @GET("getComment.php")
+    suspend fun getCommentList(@Query("id_item")idMovie: String):List<Comment>
 }

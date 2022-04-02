@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import com.example.moviestreaming.model.database.MovieDao
 import com.example.moviestreaming.model.datasource.account.local.UserAccountLocalDataSourceImpl
 import com.example.moviestreaming.model.datasource.account.remote.UserAccountRemoteDataSourceImpl
+import com.example.moviestreaming.model.datasource.comment.CommentRemoteDataSource
 import com.example.moviestreaming.model.datasource.detailmovie.DetailMovieRemoteDataSource
 import com.example.moviestreaming.model.datasource.episode.EpisodeRemoteDataSource
 import com.example.moviestreaming.model.datasource.genre.GenreRemoteDataSource
@@ -15,6 +16,8 @@ import com.example.moviestreaming.model.datasource.user.UserRemoteDataSource
 import com.example.moviestreaming.model.network.ApiService
 import com.example.moviestreaming.model.repository.account.UserAccountRepository
 import com.example.moviestreaming.model.repository.account.UserAccountRepositoryImpl
+import com.example.moviestreaming.model.repository.comment.CommentRepository
+import com.example.moviestreaming.model.repository.comment.CommentRepositoryImpl
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepository
 import com.example.moviestreaming.model.repository.detailmovie.DetailMovieRepositoryImpl
 import com.example.moviestreaming.model.repository.episode.EpisodeRepository
@@ -83,6 +86,12 @@ object RepositoryModule {
     @Provides
     fun provideUserAccountRepository(apiService: ApiService ,sharedPreferences: SharedPreferences):UserAccountRepository{
         return UserAccountRepositoryImpl(UserAccountRemoteDataSourceImpl(apiService) , UserAccountLocalDataSourceImpl(sharedPreferences))
+    }
+
+    @Singleton
+    @Provides
+    fun provideCommentRepository(apiService: ApiService):CommentRepository{
+        return CommentRepositoryImpl(CommentRemoteDataSource(apiService))
     }
 
 }

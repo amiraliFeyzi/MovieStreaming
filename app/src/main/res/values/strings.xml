@@ -46,4 +46,8 @@
     <string name="charge_account">Charge Account:</string>
     <string name="nothing">Nothing!!</string>
     <string name="deleteFavorite">To remove item from favorites, keep on the Movie photo</string>
+    <string name="downloadFileWaiting">Downloading File please Wait…</string>
+    <string name="downloadStarted">Downloading Started…</string>
+    <string name="comment">Comment</string>
+    <string name="sendComment">Send Comment…</string>
 </resources>

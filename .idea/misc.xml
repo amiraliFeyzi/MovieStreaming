@@ -11,7 +11,9 @@
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_iv_slider.xml" value="0.16" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_rate_imdb.xml" value="0.134" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/bg_tv_rank.xml" value="0.125" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_auth.xml" value="0.2" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_comment.xml" value="0.25" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_episode.xml" value="0.19947916666666668" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_genre_movie.xml" value="0.20416666666666666" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/activity_intro.xml" value="0.5" />
@@ -36,6 +38,7 @@
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/fragment_sign_up.xml" value="0.16" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_buy_account.xml" value="0.25" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_cast.xml" value="0.33" />
+        <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_comment.xml" value="0.25" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_episode.xml" value="0.45839210155148097" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_favorite.xml" value="0.16" />
         <entry key="..\:/Works File/MovieStreaming/app/src/main/res/layout/item_genre.xml" value="0.2" />
