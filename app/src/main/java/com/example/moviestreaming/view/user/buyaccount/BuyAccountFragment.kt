@@ -47,7 +47,6 @@ class BuyAccountFragment : BaseFragment(),BuyAccountAdapter.BuyAccountClickListe
     private fun getData(){
         viewModel.getListBuyAccount()
         viewModel.getSubscriptionUserFromServer()
-        viewModel.setPayment()
     }
 
     private fun setUpUi(buyAccountList:List<BuyAccount>){

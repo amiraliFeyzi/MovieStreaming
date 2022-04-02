@@ -31,11 +31,13 @@ class ProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getSubscriptionUserFromServer()
         observeData()
+
     }
 
     private fun observeData(){
-        viewModel.getSubscriptionUserFromServer()
 
         viewModel.paymentLiveData.observe(viewLifecycleOwner){
 
@@ -43,7 +45,7 @@ class ProfileFragment : BaseFragment() {
 
             val daySubscription = convertUnixTimeToDay(subscriptionTime)
             if (daySubscription >0){
-                binding.tvCountAccount.text = "${daySubscription} Days"
+                binding.tvCountAccount.text = "$daySubscription Days"
             }else{
                 binding.tvCountAccount.text = getString(R.string.nothing)
             }

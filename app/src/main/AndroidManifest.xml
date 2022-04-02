@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -15,8 +14,11 @@
         android:theme="@style/Theme.MovieStreaming"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.comment.CommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.splash.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".view.intro.IntroActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".view.genremovie.GenreMovieActivity"
             android:exported="false" />
@@ -49,16 +49,17 @@
             android:exported="false" />
         <activity
             android:name=".view.home.MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="moviestreaming" android:host="com.example.moviestreaming"/>
+                <data
+                    android:host="com.example.moviestreaming"
+                    android:scheme="moviestreaming" />
             </intent-filter>
-
         </activity>
     </application>
 

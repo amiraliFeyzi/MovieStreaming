@@ -1,7 +1,11 @@
 package com.example.moviestreaming.view.moviedetail
 
+import android.app.DownloadManager
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.webkit.URLUtil
 import androidx.activity.viewModels
 import com.example.moviestreaming.R
 import com.example.moviestreaming.base.BaseActivity
@@ -14,6 +18,7 @@ import com.example.moviestreaming.model.dataclass.Season
 import com.example.moviestreaming.utils.setHorizontalRecyclerView
 import com.example.moviestreaming.utils.variables.CATEGORY_NAME_SERIES
 import com.example.moviestreaming.utils.variables.EXTRA_KEY_DATA
+import com.example.moviestreaming.view.comment.CommentActivity
 import com.example.moviestreaming.view.episode.EpisodeActivity
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
 import com.example.moviestreaming.view.moviedetail.adapter.CastMovieAdapter
@@ -50,6 +55,7 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
         viewModel.detailMovieLiveData.observe(this){
             it.forEach { detailMovie->
                 setUpUiDetailMovie(detailMovie)
+                downloadMovie(detailMovie.link_movie)
             }
         }
 
@@ -63,6 +69,21 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
 
         viewModel.similarMovieLiveData.observe(this){
             setSimilarMovie(it)
+        }
+
+    }
+
+    private fun downloadMovie(uri:String){
+        binding.ivDownload.setOnClickListener {
+            val request = DownloadManager.Request(Uri.parse(uri))
+            val title = URLUtil.guessFileName(uri , null , null )
+            request.setTitle(title)
+            request.setDescription(getString(R.string.downloadFileWaiting))
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS , title)
+            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+            downloadManager.enqueue(request)
+            showToast(getString(R.string.downloadStarted))
         }
 
     }
@@ -88,6 +109,11 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
 
         binding.tvRateImdbMovieDetail.text = "Imdb: ${movie.rate_imdb}"
 
+        binding.ivComment.setOnClickListener {
+            startActivity(Intent(this , CommentActivity::class.java).apply {
+                putExtra(EXTRA_KEY_DATA , movie.id)
+            })
+        }
 
 
     }
@@ -100,6 +126,8 @@ class MovieDetailActivity : BaseActivity() , MovieAdapter.OnMovieClickListener ,
                 putExtra(EXTRA_KEY_DATA ,detailMovie.link_movie)
             })
         }
+
+
 
         binding.ivBack.setOnClickListener {
             finish()
