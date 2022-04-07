@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ActivityIntroBinding
 import com.example.moviestreaming.model.`object`.UserInformation
 import com.example.moviestreaming.model.dataclass.Intro

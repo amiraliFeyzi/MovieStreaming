@@ -26,7 +26,7 @@ class SplashActivity : BaseActivity() {
 
     private fun connectionManager(){
         val handler = Handler()
-        if(ConnectionManager.CheckConnection(this)){
+        if(ConnectionManager.checkConnection(this)){
             handler.postDelayed({
                 Toast.makeText(this@SplashActivity , getString(R.string.connected) , Toast.LENGTH_SHORT).show()
                 if (!UserInformation.email.isNullOrEmpty() || !UserInformation.password.isNullOrEmpty()){

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.moviestreaming.R
 import com.example.moviestreaming.base.BaseFragment
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.FragmentFavoriteBinding
 import com.example.moviestreaming.model.dataclass.MovieEntity
 import dagger.hilt.android.AndroidEntryPoint

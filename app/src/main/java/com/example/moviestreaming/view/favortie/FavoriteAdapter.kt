@@ -3,7 +3,7 @@ package com.example.moviestreaming.view.favortie
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ItemFavoriteBinding
 import com.example.moviestreaming.model.dataclass.MovieEntity
 import java.util.ArrayList

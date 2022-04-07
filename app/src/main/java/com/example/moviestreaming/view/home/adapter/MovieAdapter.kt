@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviestreaming.R
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ItemMovieBinding
 import com.example.moviestreaming.databinding.ItemMovieListBinding
 import com.example.moviestreaming.databinding.ItemPopularMovieBinding

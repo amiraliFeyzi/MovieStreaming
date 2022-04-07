@@ -51,4 +51,5 @@
     <string name="comment">Comment</string>
     <string name="sendComment">Send Comment…</string>
     <string name="buyAccount">You must Buy Account To Download Movie</string>
+    <string name="textIsNull">Comment Text is Empty</string>
 </resources>

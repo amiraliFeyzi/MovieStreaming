@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.moviestreaming.R
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ActivityEpisodeBinding
 import com.example.moviestreaming.model.dataclass.Episode
 import com.example.moviestreaming.utils.variables.EXTRA_KEY_DATA

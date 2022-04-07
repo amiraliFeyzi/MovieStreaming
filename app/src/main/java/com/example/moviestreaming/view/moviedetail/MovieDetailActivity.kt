@@ -9,7 +9,7 @@ import android.webkit.URLUtil
 import androidx.activity.viewModels
 import com.example.moviestreaming.R
 import com.example.moviestreaming.base.BaseActivity
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ActivityMovieDetailBinding
 import com.example.moviestreaming.model.dataclass.Cast
 import com.example.moviestreaming.model.dataclass.DetailMovie

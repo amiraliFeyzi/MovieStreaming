@@ -1,6 +1,5 @@
-package com.example.moviestreaming.cumponents.imagview
+package com.example.moviestreaming.components.imagview
 
-import android.widget.ImageView
 import coil.load
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation

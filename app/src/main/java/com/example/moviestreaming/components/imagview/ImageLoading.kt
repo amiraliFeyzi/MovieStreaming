@@ -1,4 +1,4 @@
-package com.example.moviestreaming.cumponents.imagview
+package com.example.moviestreaming.components.imagview
 
 import com.example.moviestreaming.customview.imageview.MovieImageView
 

@@ -2,13 +2,8 @@ package com.example.moviestreaming.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.example.moviestreaming.cumponents.imagview.CoilImageLoading
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
-import com.example.moviestreaming.model.database.AppDataBase
-import com.example.moviestreaming.model.database.MovieDao
-import com.example.moviestreaming.utils.variables.AppDataBaseNAME
+import com.example.moviestreaming.components.imagview.CoilImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.utils.variables.SHARED_NAME
 import dagger.Module
 import dagger.Provides

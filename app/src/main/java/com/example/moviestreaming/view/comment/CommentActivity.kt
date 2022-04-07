@@ -39,9 +39,14 @@ class CommentActivity : BaseActivity() {
 
     private fun sendComment(){
         binding.ivSendComment.setOnClickListener {
-            viewModel.addComment(binding.etComment.text.toString())
-            showToast(getString(R.string.sendComment))
-            binding.etComment.setText("")
+            if (binding.etComment.text.isNotEmpty()){
+                viewModel.addComment(binding.etComment.text.toString())
+                showToast(getString(R.string.sendComment))
+                binding.etComment.setText("")
+            }else{
+                showToast(getString(R.string.textIsNull))
+            }
+
 
 
         }

@@ -3,7 +3,7 @@ package com.example.moviestreaming.view.search
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviestreaming.cumponents.imagview.ImageLoading
+import com.example.moviestreaming.components.imagview.ImageLoading
 import com.example.moviestreaming.databinding.ItemSearchBinding
 import com.example.moviestreaming.model.dataclass.Movie
 import com.example.moviestreaming.view.home.adapter.MovieAdapter
