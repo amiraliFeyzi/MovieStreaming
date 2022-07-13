@@ -33,62 +33,64 @@ import com.example.moviestreaming.model.repository.user.UserRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 object RepositoryModule {
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideMovieRepository(apiService: ApiService ,movieDao: MovieDao):MovieRepository{
         return MovieRepositoryImpl(MovieRemoteRemoteDataSourceImpl(apiService) , MovieLocalDataSourceImpl(movieDao))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideDetailMoveRepository(apiService: ApiService):DetailMovieRepository{
         return DetailMovieRepositoryImpl(DetailMovieRemoteDataSource(apiService))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideEpisodeMovieRepository(apiService: ApiService):EpisodeRepository{
         return EpisodeRepositoryImpl(EpisodeRemoteDataSource(apiService))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideGenreRepository(apiService: ApiService):GenreRepository{
         return GenreRepositoryImpl(GenreRemoteDataSource(apiService))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideIntroRepository(apiService: ApiService):IntroRepository{
         return IntroRepositoryImpl(IntroRemoteDataSource(apiService))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideUserRepository(apiService: ApiService , sharedPreferences: SharedPreferences):UserRepository{
         return UserRepositoryImpl(UserRemoteDataSource(apiService) , UserLocalDataSource(sharedPreferences))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideLocalDataSource(sharedPreferences: SharedPreferences):UserLocalDataSource{
         return UserLocalDataSource(sharedPreferences)
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideUserAccountRepository(apiService: ApiService ,sharedPreferences: SharedPreferences):UserAccountRepository{
         return UserAccountRepositoryImpl(UserAccountRemoteDataSourceImpl(apiService) , UserAccountLocalDataSourceImpl(sharedPreferences))
     }
 
-    @Singleton
+    @ViewModelScoped
     @Provides
     fun provideCommentRepository(apiService: ApiService):CommentRepository{
         return CommentRepositoryImpl(CommentRemoteDataSource(apiService))
